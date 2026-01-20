@@ -1,0 +1,112 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> !-->
+<!DOCTYPE html>
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>	
+        <title>
+            Autoškola&nbsp;Müllerka        </title>                            
+        <meta http-equiv="content-type" content="text/xhtml; charset=utf-8"/>        
+        <meta name="description" content="Autoškola Müllerka – nejlepší autoškola v Kadani. Kurzy B, L17, on-line přihlášky.">        
+        <meta name="keywords" content="Autoškola Kadaň, Autoškola Klášterec nad Ohří, Autoškola, Müllerka, Autoškola Müllerka, L17, Řízení s mentorem, Kurzy v Kadani">        
+        <meta http-equiv="cache-control" content="no-cache">        
+        <meta http-equiv="pragma" content="no-cache">        
+        <meta content="cs" http-equiv="content-language"/>        
+        <meta content="snippet, archive" name="googlebot"/>        
+        <meta name="author" content="Ondra Anděl, Bob"/>        
+        <meta name="copyright" content="Copyright © 2025, Ondra Anděl, Bob"/>                         	
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-->
+        <link rel="shortcut icon" href="https://www.autoskola-mullerka.cz/images/favicon.ico"/>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.autoskola-mullerka.cz/images/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.autoskola-mullerka.cz/images/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.autoskola-mullerka.cz/images/favicon-16x16.png">
+        <link rel="manifest" href="https://www.autoskola-mullerka.cz/images/site.webmanifest">
+        <!-- Open Graph -->
+        <meta property="og:title" content="Autoškola Müllerka">
+        <meta property="og:description" content="Autoškola Müllerka – kurzy, přihlášky.">
+        <meta property="og:image" content="https://www.autoskola-mullerka.cz/images/logo.jpeg">
+        <meta property="og:type" content="website">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="theme-color" content="#0d1117">
+        
+        <link rel="stylesheet" type="text/css" href="./styles/template.css"/>	 
+        <link rel="stylesheet" href="./styles/home.css?v=202601052356" type="text/css" />    </head>
+    <body>        
+        <header>
+                    
+            <nav id="navbar">                
+    
+                <div id="dropdown" class="dropdown">
+                  <button class="dropbtn">☰</button>
+                  <div class="dropdown-content">
+                    <a href="home" title="Úvod">Úvod</a>
+                    <a href="about" title="O Nás">O&nbsp;nás</a>
+                    <a href="kurzy" title="Kurzy">Kurzy</a>
+                    <a href="l17" title="L17">L17</a>
+                    <a href="kontakty" title="Kontakty">Kontakty</a>
+                    <a href="dwnld" title="Ke stažení">Ke&nbsp;stažení</a> 
+                    <a href="prihlaska" title="Online přihláška">Online přihláška</a> 
+                  </div>
+                </div>
+                            
+                <div id="autoskola">
+                    Autoškola Müllerka
+                </div>            
+                <div id="logo">                      
+                    <a href="home" title="Autoškola Müllerka"><img src="https://www.autoskola-mullerka.cz/images/logo.jpeg" alt="Logo Autoškoly Müllerka"></a>                
+                </div>                
+    
+            </nav>
+                    
+        </header>  
+    
+        <main id="main-content" >    
+            <div id="home">
+    <div id="title-box">        
+        <h1 class="stříbrný-nadpis">Autoškola Müllerka</h1>    
+    </div>
+    <div id="prihlaska">
+        <a href="prihlaska" class="btn">Přihláška On-line</a>
+        <div id="zacatek">
+            <h2>Začátek kurzu 1.&nbsp;1.&nbsp;2026</h2>
+        </div>      
+            
+    </div>
+    <div>
+        <h3>
+            Vaše autoškola v Klášterci nad Ohří a v Kadani
+        </h3>
+    </div>
+    <div id="home-logo">                      
+    </div>                
+
+</div>        
+        </main>  
+    
+        <footer>            
+            <div>&copy; <span id="year"></span> Autoškola Müllerka, Všechna práva vyhrazena</div>
+            <script>
+                document.getElementById('year').textContent = new Date().getFullYear();
+            </script>
+        </footer>
+<script>
+(function() {
+	if (!localStorage.getItem('cookieconsent')) {
+		document.body.innerHTML += '\
+		<div class="cookieconsent" style="position:fixed;padding:20px;left:0;bottom:0;background-color:#000;color:#FFF;text-align:center;width:100%;z-index:99999;">\
+			Tento web používá cookies. Pokračováním na tento web souhlasíte s jejich použitím.\
+			<a href="#" style="color:#CCCCCC;">Souhlasím</a>\
+		</div>\
+		';
+		document.querySelector('.cookieconsent a').onclick = function(e) {
+			e.preventDefault();
+			document.querySelector('.cookieconsent').style.display = 'none';
+			localStorage.setItem('cookieconsent', true);
+		};
+	}
+})();
+</script>
+        
+    </body>
+</html>

@@ -1,23 +1,22 @@
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { Link } from 'react-router-dom';
+import { Layout } from '@/components/Layout';
+import { Home } from 'lucide-react';
 
 const NotFound = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
-  }, [location.pathname]);
-
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>
-        <a href="/" className="text-primary underline hover:text-primary/90">
-          Return to Home
-        </a>
-      </div>
-    </div>
+    <Layout>
+      <section className="min-h-[70vh] flex items-center justify-center py-20">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="font-heading text-8xl font-bold text-primary mb-4">404</h1>
+          <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Stránka nenalezena</h2>
+          <p className="text-muted-foreground mb-8">Omlouváme se, ale stránka neexistuje.</p>
+          <Link to="/" className="btn-hero inline-flex items-center gap-2">
+            <Home size={20} className="relative z-10" />
+            <span className="relative z-10">Zpět na úvod</span>
+          </Link>
+        </div>
+      </section>
+    </Layout>
   );
 };
 
