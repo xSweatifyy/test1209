@@ -4,8 +4,7 @@ import { Layout } from '@/components/Layout';
 import { PageHeader } from '@/components/PageHeader';
 import { Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-
-const RECIPIENT_EMAIL = 'Ondrej.andel@email.cz';
+import { supabase } from '@/integrations/supabase/client';
 
 const OnlinePrihlaska = () => {
   const { toast } = useToast();
@@ -36,43 +35,30 @@ const OnlinePrihlaska = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Create mailto link with form data
-    const subject = encodeURIComponent(`Online přihláška - ${formData.firstName} ${formData.lastName}`);
-    const body = encodeURIComponent(`
-Nová online přihláška do autoškoly
+    try {
+      const { data, error } = await supabase.functions.invoke('send-registration', {
+        body: formData
+      });
 
-OSOBNÍ ÚDAJE:
-Jméno: ${formData.firstName}
-Příjmení: ${formData.lastName}
-E-mail: ${formData.email}
-Telefon: ${formData.phone}
-Datum narození: ${formData.birthDate}
-Státní občanství: ${formData.nationality}
+      if (error) {
+        throw error;
+      }
 
-ADRESA:
-Ulice a č.p.: ${formData.street}
-Město: ${formData.city}
-PSČ: ${formData.postalCode}
-
-ŽÁDÁM O OPRÁVNĚNÍ:
-${formData.courseType === 'B' ? 'Skupina B' : formData.courseType === 'kondice' ? 'Kondiční jízdy' : 'Navrácení ŘP'}
-
----
-Odesláno z webové stránky Autoškola Müllerka
-    `.trim());
-
-    // Open mailto link
-    window.location.href = `mailto:${RECIPIENT_EMAIL}?subject=${subject}&body=${body}`;
-
-    // Simulate submission delay
-    setTimeout(() => {
-      setIsSubmitting(false);
       setIsSubmitted(true);
       toast({
-        title: "Přihláška připravena",
-        description: "Otevře se váš emailový klient pro odeslání přihlášky.",
+        title: "Přihláška odeslána!",
+        description: "Vaše přihláška byla úspěšně odeslána. Brzy Vás budeme kontaktovat.",
       });
-    }, 1000);
+    } catch (error: any) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Chyba při odesílání",
+        description: "Nepodařilo se odeslat přihlášku. Zkuste to prosím znovu nebo nás kontaktujte telefonicky.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
