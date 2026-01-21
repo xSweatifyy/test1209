@@ -131,7 +131,7 @@ const Kontakty = () => {
               <div className="glass-card overflow-hidden p-0">
                 <div className="aspect-video relative">
                   <iframe
-                    src="https://frame.mapy.cz/s/cazonocalo"
+                    src="https://frame.mapy.cz/s/mevodajese"
                     className="absolute inset-0 w-full h-full border-0"
                     title="Mapa - Autoškola Müllerka"
                     loading="lazy"
