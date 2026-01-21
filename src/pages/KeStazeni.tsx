@@ -1,34 +1,25 @@
 import { motion } from 'framer-motion';
 import { Layout } from '@/components/Layout';
 import { PageHeader } from '@/components/PageHeader';
-import { FileText, Download, ExternalLink } from 'lucide-react';
+import { FileText, Download } from 'lucide-react';
 
 const KeStazeni = () => {
+  // Dokumenty ke stažení - později budou nahrazeny soubory z Assets2
   const documents = [
     {
-      title: 'Žádost o přijetí k výuce a výcviku',
-      description: 'Formulář pro přihlášení do autoškoly',
-      url: 'https://www.autoskola-mullerka.cz/docs/zadost-o-prijeti.pdf'
+      title: 'Dokument 1',
+      description: 'Popis dokumentu 1',
+      filename: 'dokument-1.pdf'
     },
     {
-      title: 'Lékařský posudek o zdravotní způsobilosti',
-      description: 'Formulář pro lékaře',
-      url: 'https://www.autoskola-mullerka.cz/docs/lekarsky-posudek.pdf'
+      title: 'Dokument 2',
+      description: 'Popis dokumentu 2',
+      filename: 'dokument-2.pdf'
     },
     {
-      title: 'Čestné prohlášení zákonného zástupce',
-      description: 'Pro žadatele mladší 18 let',
-      url: 'https://www.autoskola-mullerka.cz/docs/cestne-prohlaseni.pdf'
-    },
-    {
-      title: 'Souhlas zákonného zástupce',
-      description: 'Souhlas pro nezletilé žadatele',
-      url: 'https://www.autoskola-mullerka.cz/docs/souhlas-zakonneho-zastupce.pdf'
-    },
-    {
-      title: 'Žádost o řidičské oprávnění',
-      description: 'Formulář pro úřad',
-      url: 'https://www.autoskola-mullerka.cz/docs/zadost-ridicske-opravneni.pdf'
+      title: 'Dokument 3',
+      description: 'Popis dokumentu 3',
+      filename: 'dokument-3.pdf'
     }
   ];
 
@@ -46,9 +37,8 @@ const KeStazeni = () => {
               {documents.map((doc, index) => (
                 <motion.a
                   key={doc.title}
-                  href={doc.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={`/assets2/${doc.filename}`}
+                  download
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -68,7 +58,6 @@ const KeStazeni = () => {
                   </div>
                   <div className="flex items-center gap-2 text-primary">
                     <Download size={20} />
-                    <ExternalLink size={16} className="opacity-50" />
                   </div>
                 </motion.a>
               ))}
