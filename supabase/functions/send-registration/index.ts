@@ -9,7 +9,7 @@ const corsHeaders = {
 };
 
 // Email příjemce - lze snadno změnit
-const RECIPIENT_EMAIL = "ondrej.andel@email.cz";
+const RECIPIENT_EMAIL = "developing.andilek@gmail.com"; // Změňte po ověření domény v Resend
 
 interface RegistrationRequest {
   firstName: string;
