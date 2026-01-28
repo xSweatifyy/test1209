@@ -131,11 +131,12 @@ const Kontakty = () => {
               <div className="glass-card overflow-hidden p-0">
                 <div className="aspect-video relative">
                   <iframe
-                    src="https://frame.mapy.cz/s/mevodajese"
+                    src="https://www.google.com/maps?q=5.+Května+680,+432+01+Kadaň,+Česká+republika&output=embed"
                     className="absolute inset-0 w-full h-full border-0"
                     title="Mapa - Autoškola Müllerka"
                     loading="lazy"
                     allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
                   />
                 </div>
               </div>
