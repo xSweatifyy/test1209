@@ -79,8 +79,7 @@ const OnlinePrihlaska = () => {
                 Děkujeme za zájem!
               </h2>
               <p className="text-muted-foreground mb-6">
-                Vaše přihláška byla připravena k odeslání. Pokud se emailový klient neotevřel, 
-                prosím kontaktujte nás telefonicky.
+                Vaše přihláška byla úspěšně odeslána. Brzy Vás budeme kontaktovat.
               </p>
               <button
                 onClick={() => setIsSubmitted(false)}
