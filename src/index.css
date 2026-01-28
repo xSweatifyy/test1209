@@ -173,7 +173,7 @@
 
   /* Price card styles */
   .price-card {
-    @apply glass-card relative overflow-hidden transition-transform duration-300 hover:scale-[1.02];
+    @apply glass-card relative overflow-visible transition-transform duration-300 hover:scale-[1.02];
   }
 
   .price-card::before {
