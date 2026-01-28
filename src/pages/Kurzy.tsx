@@ -24,7 +24,8 @@ const Kurzy = () => {
         'Délka cca 1 měsíc',
         'Po domluvě lze hradit na splátky'
       ],
-      highlighted: true
+      highlighted: true,
+      badge: 'Oblíbený'
     },
     {
       title: 'L17',
@@ -34,7 +35,8 @@ const Kurzy = () => {
         'Po domluvě lze hradit na splátky',
         'Více informací o L17'
       ],
-      highlighted: false,
+      highlighted: true,
+      badge: 'Oblíbený',
       link: '/l17'
     }
   ];
@@ -92,9 +94,9 @@ const Kurzy = () => {
                 transition={{ delay: index * 0.1 }}
                 className={`price-card ${course.highlighted ? 'ring-2 ring-primary' : ''}`}
               >
-                {course.highlighted && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full">
-                    Oblíbený
+                {course.badge && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full z-10">
+                    {course.badge}
                   </div>
                 )}
                 
