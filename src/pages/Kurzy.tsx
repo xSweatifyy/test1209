@@ -95,7 +95,7 @@ const Kurzy = () => {
                 className={`price-card ${course.highlighted ? 'ring-2 ring-primary' : ''}`}
               >
                 {course.badge && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full z-10">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-traffic-green text-white text-xs font-bold px-4 py-1.5 rounded-full z-10 shadow-lg">
                     {course.badge}
                   </div>
                 )}
