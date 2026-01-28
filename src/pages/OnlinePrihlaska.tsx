@@ -274,15 +274,6 @@ const OnlinePrihlaska = () => {
               </div>
             </div>
 
-            {/* Info */}
-            <div className="mt-6 p-4 rounded-lg bg-muted/50 flex items-start gap-3">
-              <AlertCircle size={20} className="text-primary flex-shrink-0 mt-0.5" />
-              <p className="text-muted-foreground text-sm">
-                Odesláním formuláře bude připraven email s vašimi údaji. 
-                Po kliknutí na tlačítko se otevře váš emailový klient.
-              </p>
-            </div>
-
             {/* Submit */}
             <button
               type="submit"
