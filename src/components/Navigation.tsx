@@ -65,7 +65,7 @@ export const Navigation = () => {
           <motion.img 
             src={logo} 
             alt="Autoškola Müllerka logo" 
-            className="h-10 w-10 rounded-lg object-contain"
+            className="h-14 w-14 md:h-16 md:w-16 rounded-lg object-contain"
             whileHover={{ scale: 1.1, rotate: 5 }}
             transition={{ type: "spring", stiffness: 300 }}
           />
