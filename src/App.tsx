@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
+import { CookieConsent } from "@/components/CookieConsent";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
@@ -13,6 +14,7 @@ const L17 = lazy(() => import("./pages/L17"));
 const Kontakty = lazy(() => import("./pages/Kontakty"));
 const KeStazeni = lazy(() => import("./pages/KeStazeni"));
 const OnlinePrihlaska = lazy(() => import("./pages/OnlinePrihlaska"));
+const Cookies = lazy(() => import("./pages/Cookies"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading component
@@ -42,8 +44,10 @@ const App = () => (
             <Route path="/kontakty" element={<Kontakty />} />
             <Route path="/ke-stazeni" element={<KeStazeni />} />
             <Route path="/online-prihlaska" element={<OnlinePrihlaska />} />
+            <Route path="/cookies" element={<Cookies />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <CookieConsent />
         </Suspense>
       </BrowserRouter>
     </TooltipProvider>

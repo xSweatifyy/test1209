@@ -87,9 +87,15 @@ export const Footer = () => {
           <p className="text-muted-foreground text-sm">
             © {currentYear} Autoškola Müllerka. Všechna práva vyhrazena.
           </p>
-          <p className="text-muted-foreground/60 text-xs mt-2">
-            IČO: 23685174
-          </p>
+          <div className="flex items-center justify-center gap-4 mt-2">
+            <p className="text-muted-foreground/60 text-xs">
+              IČO: 23685174
+            </p>
+            <span className="text-muted-foreground/40">•</span>
+            <Link to="/cookies" className="text-muted-foreground/60 text-xs hover:text-primary transition-colors">
+              Cookies
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
