@@ -1,27 +1,33 @@
 import { motion } from 'framer-motion';
 import { Layout } from '@/components/Layout';
 import { PageHeader } from '@/components/PageHeader';
-import { FileText, Download } from 'lucide-react';
+import { FileText, Download, ExternalLink } from 'lucide-react';
 
 const KeStazeni = () => {
-  // Dokumenty ke stažení - později budou nahrazeny soubory z Assets2
+  // Dokumenty ke stažení
   const documents = [
     {
-      title: 'Dokument 1',
-      description: 'Popis dokumentu 1',
-      filename: 'dokument-1.pdf'
+      title: 'Žádosti',
+      description: 'Žádost o řidičský průkaz a žádost o zkoušku',
+      files: [
+        { name: 'Žádost o ŘP', filename: 'Zadost_o_RP_zadost.pdf' },
+        { name: 'Žádost o zkoušku', filename: 'Zadost_o_RP_zkouska.pdf' }
+      ],
+      type: 'multi'
     },
     {
-      title: 'Dokument 2',
-      description: 'Popis dokumentu 2',
-      filename: 'dokument-2.pdf'
-    },
-    {
-      title: 'Dokument 3',
-      description: 'Popis dokumentu 3',
-      filename: 'dokument-3.pdf'
+      title: 'Zdravotní posudek',
+      description: 'Lékařský posudek pro řidičské oprávnění',
+      filename: 'posudek.pdf',
+      type: 'single'
     }
   ];
+
+  const externalLink = {
+    title: 'Změny ve vydávání zdravotních posudků k řízení motorových vozidel pro prvožadatele o ŘO',
+    url: 'https://md.gov.cz/Zivotni-situace/Novinky-2026/Zmeny-ve-vydavani-zdravotnich-posudku-k%E2%80%AFrizeni-mot',
+    buttonText: 'Zde více informací'
+  };
 
   return (
     <Layout>
@@ -35,32 +41,89 @@ const KeStazeni = () => {
           <div className="max-w-3xl mx-auto">
             <div className="space-y-4">
               {documents.map((doc, index) => (
-                <motion.a
+                <motion.div
                   key={doc.title}
-                  href={`/assets2/${doc.filename}`}
-                  download
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="glass-card flex items-center gap-4 group hover:border-primary/50 transition-all cursor-pointer"
+                  className="glass-card"
                 >
-                  <div className="h-14 w-14 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/30 transition-colors">
-                    <FileText size={28} className="text-primary" />
+                  <div className="flex items-center gap-4">
+                    <div className="h-14 w-14 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+                      <FileText size={28} className="text-primary" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-heading font-semibold text-foreground">
+                        {doc.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm">
+                        {doc.description}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {doc.type === 'multi' && doc.files && (
+                    <div className="mt-4 flex flex-wrap gap-3">
+                      {doc.files.map((file) => (
+                        <a
+                          key={file.filename}
+                          href={`/assets2/${file.filename}`}
+                          download
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 text-primary rounded-lg transition-colors text-sm font-medium"
+                        >
+                          <Download size={16} />
+                          {file.name}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                  
+                  {doc.type === 'single' && doc.filename && (
+                    <div className="mt-4">
+                      <a
+                        href={`/assets2/${doc.filename}`}
+                        download
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 text-primary rounded-lg transition-colors text-sm font-medium"
+                      >
+                        <Download size={16} />
+                        Stáhnout
+                      </a>
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+
+              {/* External link section */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="glass-card"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="h-14 w-14 rounded-xl bg-accent/20 flex items-center justify-center flex-shrink-0">
+                    <ExternalLink size={28} className="text-accent" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-heading font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {doc.title}
+                    <h3 className="font-heading font-semibold text-foreground">
+                      {externalLink.title}
                     </h3>
-                    <p className="text-muted-foreground text-sm">
-                      {doc.description}
-                    </p>
+                    <div className="mt-4">
+                      <a
+                        href={externalLink.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-accent text-accent-foreground hover:bg-accent/90 rounded-lg transition-colors text-sm font-medium"
+                      >
+                        <ExternalLink size={16} />
+                        {externalLink.buttonText}
+                      </a>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 text-primary">
-                    <Download size={20} />
-                  </div>
-                </motion.a>
-              ))}
+                </div>
+              </motion.div>
             </div>
 
             <motion.div
