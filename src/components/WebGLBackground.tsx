@@ -244,7 +244,7 @@ const Scene = () => {
 
 export const WebGLBackground = () => {
   return (
-    <div className="fixed inset-0 -z-10 opacity-60">
+    <div className="fixed inset-0 -z-10 opacity-60 pointer-events-none">
       <Canvas 
         camera={{ position: [0, 3, 8], fov: 50 }}
         gl={{ antialias: true, alpha: true }}
